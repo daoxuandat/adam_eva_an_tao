@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Apple(weight) {
+        this.weight = weight;
+        this.decrease = function () {
+            this.weight = this.weight - 1;
+        };
+
+        this.isEmpty = function () {
+            if (this.weight > 0) {
+                return true;
+            }
+            return false;
+        };
+        this.getWeight = function () {
+            return this.weight;
+        };
+    }
+
+    function Human(name, gender, weight) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+        this.isMale = function () {
+            if (this.gender === true) {
+                return true;
+            }
+            return false;
+        };
+        this.setGender = function (new_gender) {
+            this.gender = new_gender;
+
+        };
+        this.checkApple = function (apple) {
+            if (apple.isEmpty) {
+                return true;
+            }
+            return false;
+        };
+        this.eat = function (apple) {
+            apple.decrease();
+            this.weight = this.weight + 1;
+
+        };
+        this.say = function () {
+            alert("ăn táo");
+
+        };
+        this.getName = function () {
+            return this.name;
+        };
+        this.setName = function (new_name) {
+            this.name = new_name;
+        };
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.setWeight = function (new_weight) {
+            this.weight = new_weight;
+
+        };
+
+    }
+
+    let apple = new Apple(10);
+    let adam = new Human("adam", "male", 50);
+    adam.eat(apple);
+    adam.getWeight();
+    console.log("cân nặng của adam sau khi ăn táo là :" + " " + adam.getWeight());
+    console.log("cân nặng của táo sau khi bị adam ăn là:" + " " + apple.getWeight());
+    let eva = new Human("eva", "female", 30);
+    eva.eat(apple);
+    eva.getWeight();
+    console.log("cân nặng của eva sau khi ăn táo là:" + " " + eva.getWeight());
+    console.log("cân nặng của táo sau khi bị eva ăn là :" + " " + apple.getWeight());
+</script>
+</body>
+</html>
